@@ -9,5 +9,5 @@
       line: '*.* @192.168.0.133:515'
   - name: restart systemd
     ansible.builtin.service:
-    name: rsyslog
-    state: restarted
+      name: rsyslog
+      state: restarted
