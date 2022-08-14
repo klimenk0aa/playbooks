@@ -1,0 +1,25 @@
+---
+# tasks file for percona_mysql
+- name: Prepare install
+  apt:
+    name: 
+      - curl
+      - gnupg2
+    state: build-dep
+
+- name: Download repo
+  get_url:
+    url: https://repo.percona.com/apt/percona-release_latest.{{ ansible_distribution_release }}_all.deb
+    dest: /tmp/repo.dpkg
+
+- name: Install a repo package
+  apt:
+    deb: /tmp/repo.dpkg
+
+- name: Prepare repo
+  ansible.builtin.command: percona-release setup ps80
+
+- name: Prepare install
+  package:
+    name: percona-server-server
+    state: present

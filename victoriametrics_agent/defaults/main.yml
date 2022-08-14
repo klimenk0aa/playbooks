@@ -1,0 +1,25 @@
+---
+vmagent_src_file_path: "files/vmagent-prod"
+vmagent_system_user: "vmagent"
+vmagent_system_group: "{{ vmagent_system_user }}"
+vmagent_config_dir: "/etc/vmagent"
+vmagent_sd_config_dir: "{{ vmagent_config_dir }}/file_sd_configs"
+vmagent_remote_write_host: "http://localhost:8428"
+vmagent_tmp_path: "/tmp/vmagent"
+vmagent_service_args:
+  "remoteWrite.url": "{{ vmagent_remote_write_host }}/api/v1/write"
+  "promscrape.config": "{{ vmagent_config_dir }}/config.yml"
+  "remoteWrite.tmpDataPath": "{{ vmagent_tmp_path  }}"
+
+vmagent_version: "vmagent-20220621-070454-tags-v1.78.0-0-g091408be6"
+
+vmagent_scrape_config:
+  scrape_configs:
+    - job_name: localhost
+      static_configs:
+        - targets: 
+          - "127.0.0.1:8429"
+
+
+vmagent_exec_start_post: ""
+vmagent_exec_stop: ""

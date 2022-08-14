@@ -1,0 +1,8 @@
+---
+# tasks file for reboot_role
+- name: Reboot the machine (Wait for 1 min)
+  reboot:
+    reboot_timeout: "{{ reboot_timeout }}"
+  async: 1
+  poll: 0
+  ignore_errors: yes

@@ -1,0 +1,2 @@
+remote_ssyslog_server: 127.0.0.1
+remote_ssyslog_port: 515

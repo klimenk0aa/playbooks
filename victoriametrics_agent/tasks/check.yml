@@ -1,0 +1,9 @@
+---
+- name: flush handlers
+  meta: flush_handlers
+
+- name: Ensure vmagent service started
+  service:
+    name: vmagent
+    state: started
+    enabled: yes
